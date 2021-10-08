@@ -1,0 +1,57 @@
+﻿@model Assignment2_1.Models.Customer
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+<h1>Create</h1>
+
+
+<form asp-controller="Customers" asp-action="Create">
+    <div asp-validation-summary="All"></div>
+
+    <div>
+        <label asp-for="CustomerId" class="lbl"></label> <br />
+        <input asp-for="CustomerId" class="txt" /> <br />
+        <span>@Html.ValidationMessageFor(Model => Model.CustomerId, "", new { @class = "error" })</span>
+    </div>
+
+    <div>
+        <label asp-for="Name" class="lbl"></label> <br />
+        <input asp-for="Name" class="txt" /> <br />
+        <span asp-validation-for="Name" class="error"></span>
+    </div>
+
+    <div>
+        <label asp-for="Email" class="lbl"></label> <br />
+        <input asp-for="Email" class="txt" /> <br />
+        <span asp-validation-for="Email" class="error"></span>
+    </div>
+
+    <div>
+        <label asp-for="Phone_No" class="lbl"></label> <br />
+        <input asp-for="Phone_No" class="txt" /> <br />
+        <span asp-validation-for="Phone_No" class="error"></span>
+    </div>
+    <div>
+        <label asp-for="City" class="lbl"></label> <br />
+        <input asp-for="City" class="txt" /> <br />
+        <span asp-validation-for="City" class="error"></span>
+    </div>
+
+    <input type="submit" class="submit" value="Add Employee" />
+
+    @if (ViewBag.Error != null)
+    {
+        <p>@ViewBag.Error</p>
+    }
+</form>
+
+@section CustomScripts
+{
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+}
+
